@@ -4,8 +4,8 @@
 // @version      1.0
 // @description  Add Google option to 360 fix search.
 // @author       Brandon Studio
-// @updateURL    https://cdn.jsdelivr.net/gh/BrandonStudio/360ChromePatch@main/google.js
-// @downloadURL  https://cdn.jsdelivr.net/gh/BrandonStudio/360ChromePatch@main/google.js
+// @updateURL    https://cdn.jsdelivr.net/gh/BrandonStudio/360ChromePatch@main/google.user.js
+// @downloadURL  https://cdn.jsdelivr.net/gh/BrandonStudio/360ChromePatch@main/google.user.js
 // @match        http://chrome.360.cn/360chromelink/fixsearch.html*
 // @icon         http://chrome.360.cn/favicon.ico
 // @grant        none
