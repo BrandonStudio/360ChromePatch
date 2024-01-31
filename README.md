@@ -9,4 +9,4 @@ errorpage.zip
 ```
 
 ## 谷歌搜索失败页
-安装 TamperMonkey 等脚本插件，随后打开 https://cdn.jsdelivr.net/gh/BrandonStudio/360ChromePatch@main/google.js，按照提示安装
+安装 TamperMonkey 等脚本插件，随后打开 https://cdn.jsdelivr.net/gh/BrandonStudio/360ChromePatch@main/google.js ，按照提示安装
