@@ -1,0 +1,45 @@
+name: Create Error Page Release
+
+on:
+  push:
+    branches: [main]
+    paths: ['neterror.html']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create ZIP file
+        run: |
+          zip -r errorpage.zip neterror.html
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.date.outputs.date }}
+          release_name: Release ${{ steps.date.outputs.date }}
+          body: |
+            Release created on: ${{ github.run_number }} (${{ steps.date.outputs.date }})
+          draft: false
+          prerelease: false
+
+      - name: Upload ZIP file
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./errorpage.zip
+          asset_name: errorpage.zip
+          asset_content_type: application/zip
