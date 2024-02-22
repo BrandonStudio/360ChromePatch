@@ -139,7 +139,7 @@
 			navigateTo(lastUrl);
 		}
 		function archive() {
-			navigateTo('https://web.archive.org/web/*/' + lastUrl);
+			open('https://web.archive.org/web/*/' + lastUrl);
 		}
 		(function() {
 			let notFirst = sessionStorage.getItem(flagName);
