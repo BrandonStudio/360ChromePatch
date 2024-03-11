@@ -131,12 +131,11 @@
 		const searchParams = new URLSearchParams(window.location.search);
 		const errcode = searchParams.get('errorcode');
 		const lastUrl = searchParams.get('lasturl');
-		function navigateTo(url) {
-			sessionStorage.removeItem(flagName); // Remove the flag for next refresh
-			window.location.href = url;
-		}
 		function reload() {
-			navigateTo(lastUrl);
+			sessionStorage.removeItem(flagName); // Remove the flag for next refresh
+			const urlPrefix = '<html><head><meta http-equiv="refresh" content="0;url=';
+			const urlSuffix = '"></head></html>';
+			document.documentElement.innerHTML = urlPrefix + lastUrl + urlSuffix;
 		}
 		function archive() {
 			open('https://web.archive.org/web/*/' + lastUrl);
